@@ -93,7 +93,7 @@ var options = {
     remoteUrl: "https://github.com/5adiyah/GithubAPI.git", //link to your repo
     branch: "gh-pages"};  //set this to gh-pages otherwise it will over write your master branch
 gulp.task('deploy', function () {
-    gulp.src(["dist/**/*.*", "index.html", "images/", "gulpfile.js", "package.json", "bower.json", "app/js/app.js"]) //in here add any files or folders you want to deploy
+    gulp.src(["dist/**/*.*", "index.html", "images/", "app/js/app.js"]) //in here add any files or folders you want to deploy
         .pipe(deploy(options));
 });
 

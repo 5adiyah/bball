@@ -10,6 +10,7 @@
 *.rar
 *.tar
 *.zip
+*.env
 
 # Logs and databases #
 #######################
@@ -35,4 +36,3 @@ bower_components/
 build/
 dist/
 tmp/
-.env
