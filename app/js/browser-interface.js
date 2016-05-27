@@ -11,14 +11,12 @@ var getPic = function(name){
 
 var getRepoName = function(name){
   name.forEach(function(repoName, i){
-    var part1 = '<br> <a class="repoName" href="';
-    var part2 = '">';
-    var part3 = '</a>';
-    $('#userRepos').append(part1 + "#" + part2 + repoName.name + part3);
-    // $('#userRepos').append(part1 + repoName.html_url + part2 + repoName.name + part3);
-    $('.repoName').click(function(){
-      $('#description').text(repoName.description);
-    })
+    var part1 = '<br> <a id="num';
+    var part2 = '" class="repoName" href="'
+    var part3 = '">';
+    var part4 = '</a>';
+    $('#userRepos').append(part1 + i + part2 + repoName.html_url + part3 + repoName.name + part4);
+    $('#num' + i).append('<p id="description"> &nbsp; &nbsp; '+ repoName.description + '</p>');
 
     console.log(repoName.name);
   })
