@@ -2,6 +2,7 @@
   <a href="http://gulpjs.com">
     <img height="70" src="https://raw.githubusercontent.com/gulpjs/artwork/master/gulp-2x.png">
     <img height="50" src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Npm-logo.svg/2000px-Npm-logo.svg.png">
+    <img height="50" src="http://bower.io/img/bower-logo.svg">
   </a>
   <h3 align="center">PROJECT TEMPLATE </h3>
   <p align="center">JS | NPM | GULP | BOWER </p>
