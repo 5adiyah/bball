@@ -14,7 +14,7 @@
 - You will need to have the following installed on your computer
   - Node 
   - Npm (if you install node, you should have npm)
-  - 
+
 ```
 Within the directory, run:
   $ npm install
