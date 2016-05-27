@@ -5,22 +5,42 @@
     <img height="50" src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Npm-logo.svg/2000px-Npm-logo.svg.png">
     <img height="50" src="http://bower.io/img/bower-logo.svg">
   </a>
-  <h3 align="center">PROJECT TEMPLATE </h3>
+  <h3 align="center">GITHUB API PROJECT</h3>
   <p align="center">JS | NPM | GULP | BOWER </p>
 </p>
 
-####To Run:
+####Project Description:
+*By Sadio Ali*
+*A website where a user can search github for a user*
 
-- You will need to have the following installed on your computer
-  - Node 
+
+
+## Setting Up Project
+
+Clone this repository:
+
+```
+$ git clone https://github.com/5adiyah/Java-BandApp.git
+$ cd java-BandApp
+```
+
+**You will need to have the following installed on your computer**
+  - Node
   - Npm (if you install node, you should have npm)
 
+**Within the directory, run:**
+
 ```
-Within the directory, run:
   $ npm install
   $ bower install
-  $ gulp 
+  $ gulp
 ```
+
+####Some known bugs aka features:
+- If the user you are trying to find has no email, their email will not display above the email user form
+- If the user you are trying to find has not set up a name or location that will also not display on the user page
+
+
 
 ###CREATE FILE STRUCTURE
 ______________________________
@@ -124,3 +144,25 @@ gulp.task('deploy', function () {
         .pipe(deploy(options));
 });
 ```
+
+#### Legal
+
+This software is licensed under the MIT license.
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
