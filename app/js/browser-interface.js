@@ -3,6 +3,15 @@ var repos = require('./../app/js/app.js').repos;
 
 var getName = function(name){
   $('#userName').text("User Name: " + name.name);
+  console.log(name);
+}
+
+var getEmail = function(name){
+  $('#userEmail').text("User Email: " + name.email);
+}
+
+var getLocation = function(name){
+  $('#userLocation').text("User Location: " + name.location);
 }
 
 var getPic = function(name){
@@ -17,8 +26,6 @@ var getRepoName = function(name){
     var part4 = '</a>';
     $('#userRepos').append(part1 + i + part2 + repoName.html_url + part3 + repoName.name + part4);
     $('#num' + i).append('<p id="description"> &nbsp; &nbsp; '+ repoName.description + '</p>');
-
-    console.log(repoName.name);
   })
   console.log("hello");
 }
@@ -26,6 +33,6 @@ var getRepoName = function(name){
 
 
 $(document).ready(function(){
-  user("daneden", getName, getPic);
+  user("daneden", getName, getEmail, getLocation, getPic);
   repos(getRepoName);
 });

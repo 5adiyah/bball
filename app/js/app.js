@@ -1,9 +1,11 @@
 var apiKey = require('./../../.env').apiKey;
 
-exports.user = function(userName, getName, getPic){
+exports.user = function(userName, getName, getEmail, getLocation, getPic){
   $.get('https://api.github.com/users/' + userName + '?access_token=' + apiKey).then(function(response){
     var name = response;
     var userName = getName(name);
+    var userEmail = getEmail(name);
+    var userLocation = getLocation(name);
     var userpic = getPic(name);
   }).fail(function(error){
     console.log(error.responseJSON.message);
