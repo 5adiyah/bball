@@ -10,8 +10,8 @@
 </p>
 
 ####Project Description:
-*By Sadio Ali*
-*A website where a user can search github for a user*
+- *By Sadio Ali*
+- *A website where a user can search github for a user*
 
 
 
