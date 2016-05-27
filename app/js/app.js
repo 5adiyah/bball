@@ -1,14 +1,18 @@
 var apiKey = require('./../../.env').apiKey;
 
-exports.Github = function(){
-  this.name = name;
+exports.user = function(userName, getName, getPic){
+  $.get('https://api.github.com/users/' + userName + '?access_token=' + apiKey).then(function(response){
+    var name = response;
+    var userName = getName(name);
+    var userpic = getPic(name);
+  }).fail(function(error){
+    console.log(error.responseJSON.message);
+  });
 };
 
-exports.Github.prototype.user = function(userName, getName, getPic){
-  $.get('https://api.github.com/users/' + userName + '?access_token=' + apiKey).then(function(response){
-    this.name = response;
-    var userName = getName(this.name);
-    var userpic = getPic(this.name);
+exports.repos = function(getRepo){
+  $.get('https://api.github.com/users/daneden/repos?type=all?access_token=' + apiKey).then(function(response){
+    getRepo(response);
   }).fail(function(error){
     console.log(error.responseJSON.message);
   });
@@ -16,3 +20,4 @@ exports.Github.prototype.user = function(userName, getName, getPic){
 
 
 ///repos?type=all
+//'https://api.github.com/users/5adiyah/repos?type=all?access_token=c3f10787852e13130c83b02a6f04521eabaa9c6c'
