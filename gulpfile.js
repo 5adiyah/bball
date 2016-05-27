@@ -10,7 +10,8 @@ var gulp = require('gulp'),
     jshint = require('gulp-jshint'),
     //lib = require('bower-files'), //See the note at the bottom of this file if you will use bootstrap.
     compass = require('gulp-compass'),
-    sourcemaps = require('gulp-sourcemaps');
+    sourcemaps = require('gulp-sourcemaps'),
+    deploy = require("gulp-gh-pages");
 
 //We need to tell the bower-files package where to find the Bootstrap files that we are interested in. We do this by passing an object into our initial call to the bower-files package with some initialization settings in it. If you are going to use bootstrap you would have the following, other wise you do: lib = require('bower-files') above
 
@@ -85,6 +86,16 @@ gulp.task('watch', function(){
 gulp.task("clean", function(){
     return del(['dist', 'tmp']); //When i run this, delete the distribution and temp folders
   });
+
+/******************** DEPLOY TASK ********************/
+
+var options = {
+    remoteUrl: "https://github.com/5adiyah/UpdatedTemplate.git",
+    branch: "gh-pages"};
+gulp.task('deploy', function () {
+    gulp.src(["dist/**/*.*", "app/index.html"])
+        .pipe(deploy(options));
+});
 
 /******************** BROWSERSYNC TASK ********************/
 
