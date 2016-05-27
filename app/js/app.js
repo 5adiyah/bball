@@ -4,11 +4,15 @@ exports.Github = function(){
   this.name = name;
 };
 
-exports.Github.prototype.grab = function(userName, getName){
-  var userName = "5adiyah"; //REMOVE LATER AND USE jQUERY
+exports.Github.prototype.user = function(userName, getName, getPic){
   $.get('https://api.github.com/users/' + userName + '?access_token=' + apiKey).then(function(response){
-    console.log(response);
+    this.name = response;
+    var userName = getName(this.name);
+    var userpic = getPic(this.name);
   }).fail(function(error){
     console.log(error.responseJSON.message);
   });
 };
+
+
+///repos?type=all
