@@ -38,23 +38,33 @@ $(document).ready(function(){
   $("form#usernameForm").submit(function(event) {
     event.preventDefault();
     // var userName = $("input#username").val(); //put this back
-    var userName = "5adiyah";
+    var userName = "daneden";
     user(userName, getName, getEmail, getLocation, getPic);
     repos(userName, getRepoName);
     $('.userInput').hide();
     $('.userInfo').show();
     $('.repo').hide();
+    $('.emailForm').hide();
 
   $('.usrButton').click(function(){
     $('.userInput').show();
     $('.userInfo').hide();
     $('.repo').hide();
+    $('.emailForm').hide();
   });
 
   $('.ghButton').click(function(){
     $('.userInput').hide();
     $('.userInfo').hide();
+    $('.emailForm').hide();
     $('.repo').show();
+  });
+
+  $('.emailButton').click(function(){
+    $('.userInput').hide();
+    $('.userInfo').hide();
+    $('.repo').hide();
+    $('.emailForm').show();
   });
 
   });

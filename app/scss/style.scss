@@ -26,7 +26,7 @@ body{
   padding: 25px;
 }
 
-.userInfo, .repo{
+.userInfo, .repo, .emailForm{
   display: none;
 }
 
@@ -50,4 +50,8 @@ body{
 
 .clearButtons{
   border: none;
+}
+
+textarea {
+    height: 100px;
 }
