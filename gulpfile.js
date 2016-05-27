@@ -8,9 +8,11 @@ var gulp = require('gulp'),
     browserify = require('browserify'),
     uglify = require('gulp-uglify'),
     jshint = require('gulp-jshint'),
+    //lib = require('bower-files'), //See the note at the bottom of this file if you will use bootstrap.
     compass = require('gulp-compass'),
-    sourcemaps = require('gulp-sourcemaps'),
-    autoClose = require('browser-sync-close-hook');
+    sourcemaps = require('gulp-sourcemaps');
+
+//We need to tell the bower-files package where to find the Bootstrap files that we are interested in. We do this by passing an object into our initial call to the bower-files package with some initialization settings in it. If you are going to use bootstrap you would have the following, other wise you do: lib = require('bower-files') above
 
 var lib = require('bower-files')({
   "overrides":{
@@ -24,7 +26,7 @@ var lib = require('bower-files')({
   }
 });
 
-var buildProduction = utilities.env.production;
+
 
 /******************** MY PATHS ********************/
 
@@ -46,7 +48,7 @@ gulp.task('default', ['build'], function(){
 
 /******************** BUILD TASKS ********************/
 
-gulp.task('build', ['jsBuild', 'bowerBuild', "cssBuild"], function(){
+gulp.task('build', ['jsReload', 'bower', "cssBuild"], function(){
 });
 
 //JsReload (Called in the watch task when ever there is a change to .js files)
@@ -75,7 +77,7 @@ gulp.task('watch', function(){
   gulp.watch([paths.jsFiles], ['jsReload']); //when there are any changes to any jsFiles, run jsBuild which will reload the browser, and run jsBrowserify & jshint
   gulp.watch(['bower.json'], ['bowerReload']); //when there are any changes to bower.json, run bowerBuild which will bowerJs and bowerCss which will create the two vendor.js and vendor.css files and reload the browser
   gulp.watch([paths.scssFiles], ['sassReload']); //when there are any changes to scss files, run sassBuild which will reconvert the scss files into css files and reload the browser
-  gulp.watch(["*.html"], ['htmlReload']); //when there are any changes to scss files, run htmlBuild which will reload the browser
+  gulp.watch(['./app/*.html'], ['htmlReload']); //when there are any changes to scss files, run htmlBuild which will reload the browser
 });
 
 /******************** DELETE/CLEAN TASK ********************/
@@ -88,32 +90,27 @@ gulp.task("clean", function(){
 
 //BROWSERSYNC & SERVER & CLOSE OPEN SERVER TABS
 gulp.task('serve', function() {
-  browserSync.use({
-    plugin() {},
-    hooks: {
-      'client:js': autoClose, // <-- important part to close open server tabs
-    },
-  });
   browserSync.init({
     server: {
       baseDir: "./app",
-      index: "./app/index.html"
+      index: "index.html"
     }
   });
+
   gulp.start('watch');
+
 });
 
 
 /******************** STYLES TASKS ********************/
 
-//COMPILE SASS
-gulp.task('cssBuild', function() { //grabs all scss files, compiles them to css
-  return gulp.src(paths.scssFiles)
+gulp.task('cssBuild', function() {
+  return gulp.src(paths.scssFiles) //grabs all scss files, compiles them to css
     .pipe(plumber()) //Keeps watch going even if you make a syntax error
     .pipe(sourcemaps.init())
     .pipe(sass())
     .pipe(sourcemaps.write())
-    .pipe(gulp.dest(paths.cssDirectory));
+    .pipe(gulp.dest('./app/css'));
 });
 
 /******************** SCRIPTS TASKS ********************/
@@ -165,4 +162,5 @@ gulp.task('bowerCSS', function () {
     .pipe(gulp.dest('./dist/css')); //moves them to the dist/css folder
 });
 
+//Bowe Task
 gulp.task('bower', ['bowerJS', 'bowerCSS']); //when you run bower, it runs both bowerJS and bowerCSS
