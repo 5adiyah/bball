@@ -5,6 +5,8 @@
     <title>CHANGE TITLE</title>
     <script type="text/javascript" src="dist/js/vendor.min.js"></script>
     <script type="text/javascript" src="dist/js/app.js"></script>
+    <link href='https://fonts.googleapis.com/css?family=Josefin+Sans' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Playfair+Display' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="dist/css/vendor.css">
     <link rel="stylesheet" href="dist/css/style.css">
   </head>
@@ -19,12 +21,13 @@
 
   <div class="container ">
     <div class="icons">
-      <span class="usrButton"><img src="images/usr.png" height="50" /></span>
-      <span class="ghButton"><img src="images/gh.png" height="50" /></span>
-      <span class="emailButton"><img src="images/email.png" height="50" /></span>
+      <button class="usrButton clearButtons"><img src="images/usr.png" height="50" /></span></button>
+      <button class="ghButton clearButtons"><img src="images/gh.png" height="50" /></span></button>
+      <button class="emailButton clearButtons"><img src="images/email.png" height="50" /></span></button>
     </div>
     <div class="whitebox">
 
+      <!-- Show at the beginning -->
       <div class="userInput">
         <h4 class="header">Find a Github User</h4>
         <form id="usernameForm">
@@ -35,11 +38,12 @@
           </div>
           <div class="row">
             <span class="three columns" >&nbsp;</span>
-            <button type="submit" class="six columns" name="button">Submit</button>
+            <button type="submit" id="submit" class="six columns button">Submit</button>
             <span class="three columns" >&nbsp;</span>
           </div>
         </form>
       </div>
+
 
       <!-- Show After User inputs in username -->
       <div class="userInfo">
@@ -51,7 +55,14 @@
           <div id="userDetails" class="three columns">
             <p id="userName"></p>
             <p id="userLocation"></p>
+            <button class="ghButton">Repos</button>
           </div>
+        </div>
+      </div>
+
+      <div class="repo">
+        <div class="row">
+          <ul id="userRepos"></ul>
         </div>
       </div>
 

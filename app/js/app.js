@@ -12,8 +12,8 @@ exports.user = function(userName, getName, getEmail, getLocation, getPic){
   });
 };
 
-exports.repos = function(getRepo){
-  $.get('https://api.github.com/users/daneden/repos?type=all?access_token=' + apiKey).then(function(response){
+exports.repos = function(userName, getRepo){
+  $.get('https://api.github.com/users/'+ userName + '/repos?type=all?access_token=' + apiKey).then(function(response){
     getRepo(response);
   }).fail(function(error){
     console.log(error.responseJSON.message);
