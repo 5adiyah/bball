@@ -28,8 +28,9 @@ var getRepoName = function(name){
     var part3 = '">';
     var part4 = '</a>';
     $('#userRepos').append(part1 + i + part2 + repoName.html_url + part3 + repoName.name + part4);
-    $('#num' + i).append('<p id="description"> &nbsp; &nbsp; '+ repoName.description + '</p>');
-    console.log("repoName.name");
+    if(repoName.description != ""){
+      $('#num' + i).append('<p id="description"> &nbsp; &nbsp; '+ repoName.description + '</p>');
+    }
   });
 };
 
@@ -37,8 +38,7 @@ var getRepoName = function(name){
 $(document).ready(function(){
   $("form#usernameForm").submit(function(event) {
     event.preventDefault();
-    // var userName = $("input#username").val(); //put this back
-    var userName = "daneden";
+    var userName = $("input#username").val(); //put this back
     user(userName, getName, getEmail, getLocation, getPic);
     repos(userName, getRepoName);
     $('.userInput').hide();
