@@ -9,19 +9,60 @@
     <link rel="stylesheet" href="dist/css/style.css">
   </head>
   <body>
-  <div class="container">
-    <h1>Github!</h1>
+  <!-- <div class="container">
     <div id="userName"></div>
     <div id="userEmail"></div>
     <div id="userLocation"></div>
     <div id="userPic"></div>
-    <div class="repoSection">
-      <span id="description"></span>
-      <!-- <span id="userRepos"></span> -->
-      <ul id="userRepos">
+    <ul id="userRepos"></ul>
+  </div> -->
 
-      </ul>
+  <div class="container ">
+    <div class="icons">
+      <span class="usrButton"><img src="images/usr.png" height="50" /></span>
+      <span class="ghButton"><img src="images/gh.png" height="50" /></span>
+      <span class="emailButton"><img src="images/email.png" height="50" /></span>
+    </div>
+    <div class="whitebox">
+
+      <div class="userInput">
+        <h4 class="header">Find a Github User</h4>
+        <form id="usernameForm">
+          <div class="row">
+            <p class="one column" >&nbsp;</p>
+            <input id="username" type="text" class="ten columns" placeholder="Enter a Github Username">
+            <p class="one column" >&nbsp;</p>
+          </div>
+          <div class="row">
+            <span class="three columns" >&nbsp;</span>
+            <button type="submit" class="six columns" name="button">Submit</button>
+            <span class="three columns" >&nbsp;</span>
+          </div>
+        </form>
+      </div>
+
+      <!-- Show After User inputs in username -->
+      <div class="userInfo">
+        <div class="row">
+          <div id="empty" class="two columns">
+            <p>&nbsp;</p>
+          </div>
+          <div id="userPic" class="four columns"></div>
+          <div id="userDetails" class="three columns">
+            <p id="userName"></p>
+            <p id="userLocation"></p>
+          </div>
+        </div>
+      </div>
+
+
+
+
+
     </div>
   </div>
+
+
+
   </body>
 </html>

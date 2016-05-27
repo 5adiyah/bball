@@ -2,16 +2,16 @@ var user = require('./../app/js/app.js').user;
 var repos = require('./../app/js/app.js').repos;
 
 var getName = function(name){
-  $('#userName').text("User Name: " + name.name);
+  $('#userName').text(name.name.toUpperCase());
   console.log(name);
 }
 
 var getEmail = function(name){
-  $('#userEmail').text("User Email: " + name.email);
+  $('#userEmail').text(name.email.toUpperCase());
 }
 
 var getLocation = function(name){
-  $('#userLocation').text("User Location: " + name.location);
+  $('#userLocation').text(name.location.toUpperCase());
 }
 
 var getPic = function(name){
