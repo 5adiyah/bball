@@ -78,7 +78,7 @@ gulp.task('watch', function(){
   gulp.watch([paths.jsFiles], ['jsReload']); //when there are any changes to any jsFiles, run jsBuild which will reload the browser, and run jsBrowserify & jshint
   gulp.watch(['bower.json'], ['bowerReload']); //when there are any changes to bower.json, run bowerBuild which will bowerJs and bowerCss which will create the two vendor.js and vendor.css files and reload the browser
   gulp.watch([paths.scssFiles], ['sassReload']); //when there are any changes to scss files, run sassBuild which will reconvert the scss files into css files and reload the browser
-  gulp.watch(['./app/*.html'], ['htmlReload']); //when there are any changes to scss files, run htmlBuild which will reload the browser
+  gulp.watch(['*.html'], ['htmlReload']); //when there are any changes to scss files, run htmlBuild which will reload the browser
 });
 
 /******************** DELETE/CLEAN TASK ********************/
@@ -90,10 +90,10 @@ gulp.task("clean", function(){
 /******************** DEPLOY TASK ********************/
 
 var options = {
-    remoteUrl: "https://github.com/5adiyah/UpdatedTemplate.git",
-    branch: "gh-pages"};
+    remoteUrl: "https://github.com/5adiyah/UpdatedTemplate.git", //link to your repo
+    branch: "gh-pages"};  //set this to gh-pages otherwise it will over write your master branch
 gulp.task('deploy', function () {
-    gulp.src(["dist/**/*.*", "app/index.html"])
+    gulp.src(["dist/**/*.*", "index.html", "images/", "gulpfile.js", "package.json", "bower.json"]) //in here add any files or folders you want to deploy
         .pipe(deploy(options));
 });
 
@@ -103,7 +103,7 @@ gulp.task('deploy', function () {
 gulp.task('serve', function() {
   browserSync.init({
     server: {
-      baseDir: "./app",
+      baseDir: "./",
       index: "index.html"
     }
   });
@@ -121,7 +121,7 @@ gulp.task('cssBuild', function() {
     .pipe(sourcemaps.init())
     .pipe(sass())
     .pipe(sourcemaps.write())
-    .pipe(gulp.dest('./app/css'));
+    .pipe(gulp.dest('./dist/css'));
 });
 
 /******************** SCRIPTS TASKS ********************/

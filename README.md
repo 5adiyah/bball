@@ -92,3 +92,22 @@ ______________________________
     ```
   - **BROWSERSYNC**
     `$ npm install browser-sync --save-dev`
+
+### Gulp Gh-Pages Deployment
+______________________________
+
+`$ npm install --save-dev gulp-gh-pages `
+
+*Add following to your gulpfile, you can get rid of all the comments*
+
+` var deploy = require("gulp-gh-pages");`
+
+```
+var options = {
+    remoteUrl: "https://github.com/5adiyah/UpdatedTemplate.git", //link to your repo
+    branch: "gh-pages"};  //set this to gh-pages otherwise it will over write your master branch
+gulp.task('deploy', function () {
+    gulp.src(["dist/**/*.*", "index.html", "images/", "gulpfile.js", "package.json", "bower.json"]) //in here add any files or folders you want to deploy
+        .pipe(deploy(options));
+});
+```
