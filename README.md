@@ -1,5 +1,6 @@
 <p align="center">
   <a href="http://gulpjs.com">
+    <img height="70" src="http://cdn.warer.com/media/JAVAScript-collector.png">
     <img height="70" src="https://raw.githubusercontent.com/gulpjs/artwork/master/gulp-2x.png">
     <img height="50" src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Npm-logo.svg/2000px-Npm-logo.svg.png">
     <img height="50" src="http://bower.io/img/bower-logo.svg">
