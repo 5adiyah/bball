@@ -21,7 +21,7 @@ Clone this repository:
 
 ```
 $ git clone https://github.com/5adiyah/Java-BandApp.git
-$ cd java-BandApp
+$ cd githubAPI
 ```
 
 **You will need to have the following installed on your computer**
