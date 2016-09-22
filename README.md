@@ -20,7 +20,7 @@
 Clone this repository:
 
 ```
-$ git clone https://github.com/5adiyah/Java-BandApp.git
+$ git clone https://github.com/5adiyah/githubAPI.git
 $ cd githubAPI
 ```
 
