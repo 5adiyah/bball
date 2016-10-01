@@ -1,4 +1,39 @@
-var apiKey = require('./../../.env').apiKey;
+var firebase = require("firebase");
+
+// Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyBhGUBRFZcrGH0o69FonZ-sLv9st9rIPEw",
+    authDomain: "basketball-3fba2.firebaseapp.com",
+    databaseURL: "https://basketball-3fba2.firebaseio.com",
+    storageBucket: "basketball-3fba2.appspot.com",
+    messagingSenderId: "210014366534"
+  };
+  firebase.initializeApp(config);
+
+function writeUserData(userId, name, email) {
+  firebase.database().ref('users/' + userId).set({
+    username: name,
+    email: email
+  });
+}
+
+function addPlayer(name, email, phone) {
+  var player = {
+    name: name,
+    email: email,
+    phone: phone
+  };
+
+  // Get a key for a new Post.
+  var newPlayer = firebase.database().ref().child('teams').push().key;
+
+  // Write the new post's data simultaneously in the posts list and the user's post list.
+  var updates = {};
+  updates['/posts/' + newPostKey] = postData;
+  updates['/user-posts/' + uid + '/' + newPostKey] = postData;
+
+  return firebase.database().ref().update(updates);
+}
 
 exports.user = function(userName, getName, getEmail, getLocation, getPic){
   $.get('https://api.github.com/users/' + userName + '?access_token=' + apiKey).then(function(response){

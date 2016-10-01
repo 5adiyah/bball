@@ -1,57 +1,53 @@
-$heading: 'Josefin Sans', sans-serif;
+@import 'https://fonts.googleapis.com/css?family=Chango';
+
+html {
+  font-family: 'Roboto Condensed';
+}
+
 body{
-  background: url(./../../images/bg.jpg) no-repeat center center fixed;
-  -webkit-backgound-size: cover;
+  margin: 0;
+  background: url(pattern.png) no-repeat center center fixed;
+  -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
 }
 
-.container{
-  margin: auto;
-  // text-align: center;
-  margin-top: 100px;
-}
-
-.icons{
-  text-align: center;
-}
-.icons img{
-  padding: 0 30px;
-}
-
 .whitebox{
-  background-color: white;
-  margin-top: 30px;
-  padding: 25px;
+  background-color: #fff;
+  height: 1200px;
+  width: 92%;
+  z-index: 100;
+  margin: 50px auto 0 auto;
+  border-radius: 10px;
 }
 
-.userInfo, .repo, .emailForm{
-  display: none;
+.topBar{
+  width: 100%;
+  height: 100px;
+  background-color: #333;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
 }
 
-#userPic img{
-  border-radius: 100%;
-  width: 250px;
+.topBar h2{
+  color: #fff;
+  letter-spacing: 5px;
+  padding: 20px;
   text-align: center;
-  margin-left: 20px;
+  font-family: 'Chango', cursive;
+  text-shadow: -3px 0 0 #ffa23d, 0 2px 0 #ffa23d, 0 0 0 #ffa23d, 0 0 0 #ffa23d;
 }
 
-#userDetails{
-  padding-top: 65px;
-  font-weight: bold;
+.innerContent {
+  padding: 50px 100px;
 }
 
-.header{
+.centerIt{
   text-align: center;
-  text-transform: capitalize;
-  font-family: $heading;
 }
 
-.clearButtons{
-  border: none;
-}
-
-textarea {
-    height: 100px;
+.bball {
+  width: 50%;
+  margin-bottom: 20px;
 }
